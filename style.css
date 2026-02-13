@@ -1413,10 +1413,11 @@ body {
 } */
 /* remove last cyan curved highlight */
 .text{
+
   position: fixed;
   left:50%;
   transform:translateX(-50%);
-  top:calc(env(safe-area-inset-top) + 20px);
+  top:calc(env(safe-area-inset-top) + 100px);
   width:100%;
   text-align:center;
   z-index:9999;
@@ -1427,7 +1428,7 @@ body {
   color:#fff;
 
   /* responsive cinematic font */
-  font-size: clamp(28px, 4.8vw, 48px);
+  font-size: clamp(30px, 4.8vw, 48px);
 
   font-weight:300;
   letter-spacing:2px;
