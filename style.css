@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 html, body{
-  height: 100svh;
+  height: var(--real100vh);
 }
 
 :root {
@@ -17,7 +17,7 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  height: 100svh;
+  height: var(--real100vh);
   background-color: var(--dark-color);
   overflow: hidden;
   perspective: 1000px;
@@ -1581,3 +1581,29 @@ html,body{
   50%{opacity:1; transform:scale(1.08);}
 }
 
+html, body{
+  height: var(--real100vh);
+  overflow: hidden;
+  background: #000;
+}
+
+body{
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:0;
+}
+
+/* full screen sky */
+.night{
+  position:fixed;
+  inset:0;
+  height:var(--real100vh);
+}
+.flowers{
+  margin-bottom: calc(env(safe-area-inset-bottom) + 8px);
+}
+
+.love-btn{
+  bottom: calc(env(safe-area-inset-bottom) + 18px);
+}
