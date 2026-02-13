@@ -1427,7 +1427,7 @@ body {
   color:#fff;
 
   /* responsive cinematic font */
-  font-size: clamp(32px, 4.8vw, 42px);
+  font-size: clamp(28px, 4.8vw, 48px);
 
   font-weight:300;
   letter-spacing:2px;
