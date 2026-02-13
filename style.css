@@ -22,6 +22,7 @@ body {
   overflow: hidden;
   perspective: 1000px;
   padding: 0;
+   padding-bottom: env(safe-area-inset-bottom);
 }
 
 
@@ -1426,7 +1427,7 @@ body {
   color:#fff;
 
   /* responsive cinematic font */
-  font-size: clamp(18px, 4.8vw, 42px);
+  font-size: clamp(50px, 4.8vw, 42px);
 
   font-weight:300;
   letter-spacing:2px;
@@ -1508,3 +1509,38 @@ html,body{
 
 }
 
+/* ===== Floating Love Button ===== */
+.love-btn{
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+
+  padding: 14px 28px;
+  border-radius: 40px;
+
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #fff;
+
+  background: rgba(255,60,60,.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,120,120,.4);
+
+  box-shadow:
+    0 0 12px rgba(255,0,0,.4),
+    inset 0 0 8px rgba(255,255,255,.25);
+
+  z-index: 2000;
+  cursor: pointer;
+
+  animation: lovePulse 2.6s ease-in-out infinite;
+}
+
+/* glow breathing */
+@keyframes lovePulse{
+  0%,100%{ transform:translateX(-50%) scale(1); }
+  50%{ transform:translateX(-50%) scale(1.08); }
+}
