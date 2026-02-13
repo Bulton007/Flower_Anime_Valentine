@@ -1413,7 +1413,7 @@ body {
 } */
 /* remove last cyan curved highlight */
 .text{
-
+    margin-top: 100px;
   position: fixed;
   left:50%;
   transform:translateX(-50%);
@@ -1428,7 +1428,7 @@ body {
   color:#fff;
 
   /* responsive cinematic font */
-  font-size: clamp(30px, 4.8vw, 48px);
+  font-size: clamp(31px, 4.8vw, 48px);
 
   font-weight:300;
   letter-spacing:2px;
