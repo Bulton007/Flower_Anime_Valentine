@@ -1427,7 +1427,7 @@ body {
   color:#fff;
 
   /* responsive cinematic font */
-  font-size: clamp(50px, 4.8vw, 42px);
+  font-size: clamp(65px, 4.8vw, 42px);
 
   font-weight:300;
   letter-spacing:2px;
@@ -1489,12 +1489,12 @@ html,body{
 }
 
 /* base desktop scale */
-.flowers{
+/* .flowers{
   transform-origin: bottom center;
-}
+} */
 
 
-@media (max-width:600px){
+/* @media (max-width:600px){
 
   .flowers{
     transform: translateY(-8vh) scale(var(--scale-mobile,1));
@@ -1507,40 +1507,77 @@ html,body{
     transform: translateY(-12vh) scale(var(--scale-mobile,1));
   }
 
-}
+} */
 
 /* ===== Floating Love Button ===== */
+/* ===============================
+   MOBILE FRIENDLY LOVE BUTTON
+   =============================== */
+
 .love-btn{
   position: fixed;
   left: 50%;
-  bottom: calc(20px + env(safe-area-inset-bottom));
+  bottom: calc(28px + env(safe-area-inset-bottom));
   transform: translateX(-50%);
 
-  padding: 14px 28px;
-  border-radius: 40px;
+  min-width: 72vw;              /* big width on phones */
+  max-width: 420px;
 
-  font-size: 18px;
-  letter-spacing: 1px;
+  padding: 18px 30px;
+  border-radius: 50px;
+
+  font-size: clamp(18px, 4.5vw, 22px);
+  font-weight: 500;
+  letter-spacing: .5px;
+
   color: #fff;
+  text-align: center;
 
-  background: rgba(255,60,60,.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(
+    180deg,
+    rgba(255,120,120,.35),
+    rgba(255,0,0,.18)
+  );
 
-  border: 1px solid rgba(255,120,120,.4);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,150,150,.45);
 
   box-shadow:
-    0 0 12px rgba(255,0,0,.4),
-    inset 0 0 8px rgba(255,255,255,.25);
+    0 10px 30px rgba(255,0,0,.35),
+    inset 0 0 12px rgba(255,255,255,.35),
+    0 0 25px rgba(255,80,80,.4);
 
-  z-index: 2000;
+  z-index: 9999;
   cursor: pointer;
 
-  animation: lovePulse 2.6s ease-in-out infinite;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
 
-/* glow breathing */
-@keyframes lovePulse{
-  0%,100%{ transform:translateX(-50%) scale(1); }
-  50%{ transform:translateX(-50%) scale(1.08); }
+/* press animation (feels like real app button) */
+.love-btn:active{
+  transform: translateX(-50%) scale(.95);
+  box-shadow:
+    0 4px 12px rgba(255,0,0,.25),
+    inset 0 0 10px rgba(0,0,0,.35);
 }
+
+/* subtle breathing glow */
+.love-btn::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:inherit;
+  background: radial-gradient(circle, rgba(255,90,90,.45), transparent 70%);
+  filter: blur(10px);
+  opacity:.7;
+  z-index:-1;
+  animation: btnGlow 3s ease-in-out infinite;
+}
+
+@keyframes btnGlow{
+  0%,100%{opacity:.6; transform:scale(1);}
+  50%{opacity:1; transform:scale(1.08);}
+}
+
